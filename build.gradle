@@ -57,6 +57,7 @@ dependencies {
   implementation project(':modules:axelor-crm')
   implementation project(':modules:axelor-stock')
   implementation project(':modules:axelor-supplychain')
+  implementation project(':modules:axelor-purchase')
 }
 
 war {

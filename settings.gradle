@@ -47,18 +47,11 @@ dependencyResolutionManagement {
 }
 
 //Include all modules
-rootProject.name = "axelor-erp"
+rootProject.name = "open-platform-demo"
 
-def modules = []
-file("modules").traverse(type: groovy.io.FileType.DIRECTORIES, maxDepth: 1) { it ->
-  if (new File(it, "build.gradle").exists()) {
-    modules.add(it)
-  }
-}
-
-gradle.ext.appModules = modules
-
-modules.each { dir ->
-  include "modules:$dir.name"
-  project(":modules:$dir.name").projectDir = dir
-}
+include 'modules:axelor-account'
+include 'modules:axelor-base'
+include 'modules:axelor-crm'
+include 'modules:axelor-sale'
+include 'modules:axelor-stock'
+include 'modules:axelor-supplychain'

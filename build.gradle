@@ -42,12 +42,25 @@ allprojects {
   }
 }
 
-tasks.withType(PublishToMavenRepository).configureEach { it.enabled = false }
+/*tasks.withType(PublishToMavenRepository).configureEach { it.enabled = false }
 
 dependencies {
   gradle.appModules.each { dir ->
     implementation project(":modules:$dir.name")
   }
+}*/
+dependencies {
+  // add module dependencies
+  implementation project(':modules:axelor-account')
+  implementation project(':modules:axelor-sale')
+  implementation project(':modules:axelor-base')
+  implementation project(':modules:axelor-crm')
+  implementation project(':modules:axelor-stock')
+  implementation project(':modules:axelor-supplychain')
+}
+
+war {
+  archiveFileName = 'open-platform-demo.war'
 }
 
 apply from: 'gradle/style.gradle'
